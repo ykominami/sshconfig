@@ -1,0 +1,11 @@
+require "sshconfig"
+
+fname = ARGV[0] || "#{ENV["HOME"]}/.ssh/config"
+sshconfig = Sshconfig::Sshconfig.new(fname)
+
+sshconfig.parse
+sshconfig.convert
+sshconfig.list
+# puts "====\n"
+# sshconfig.keyfiles.map { |k| puts k }
+puts sshconfig.identityfiles
